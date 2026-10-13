@@ -39,6 +39,15 @@
   var headerBadge = document.getElementById("pharmacy-terminated-badge");
   if (headerBadge) headerBadge.remove();
 
+  var heading = document.querySelector("main h1");
+  if (heading && heading.parentElement && !document.getElementById("pharmacy-reinstated-badge")) {
+    var reinstated = document.createElement("span");
+    reinstated.id = "pharmacy-reinstated-badge";
+    reinstated.className = "inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-0.5 text-[11.5px] font-semibold border border-accent/20 bg-accent-soft text-accent";
+    reinstated.textContent = "Reinstated";
+    heading.parentElement.appendChild(reinstated);
+  }
+
   var auditHeading = null;
   var headings = document.querySelectorAll("h3");
   for (var i = 0; i < headings.length; i++) {
